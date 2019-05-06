@@ -6,48 +6,61 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+import Helmet from "react-helmet"
+import MainMenu from "./MainMenu";
+import styled, { createGlobalStyle } from "styled-components"
+import { graphql, StaticQuery } from "gatsby"
 
-import Header from "./header"
-import "./layout.css"
+const GlobalStyles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+`
+
+const LayoutWrapper = styled.div`
+  max-width: 960px;
+  margin: 0 auto;
+`
 
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+      {
+        allWordpressWpFavicon {
+          edges {
+            node {
+              url {
+                id
+                source_url
+              }
+            }
           }
         }
       }
     `}
-    render={data => (
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
-        >
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
-      </>
+    render={props => (
+      <div>
+        <Helmet
+          link={[
+            {
+              rel: "shortcut icon",
+              type: "image/png",
+              href: `${
+                props.allWordpressWpFavicon.edges[0].node.url.source_url
+              }`,
+            },
+          ]}
+        />
+        <GlobalStyles />
+        <MainMenu />
+        <LayoutWrapper>{children}</LayoutWrapper>
+      </div>
     )}
   />
 )
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
 export default Layout
