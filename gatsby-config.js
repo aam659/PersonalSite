@@ -59,8 +59,8 @@ module.exports = {
         auth: {
           // If auth.user and auth.pass are filled, then the source plugin will be allowed
           // to access endpoints that are protected with .htaccess.
-          htaccess_user: "your-htaccess-username",
-          htaccess_pass: "your-htaccess-password",
+          htaccess_user: "phpmyadminuser",
+          htaccess_pass: "Mb56dhp8682184",
           htaccess_sendImmediately: false,
 
           // If hostingWPCOM is true then you will need to communicate with wordpress.com API
