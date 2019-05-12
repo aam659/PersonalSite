@@ -22,6 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
   createRedirect({ fromPath: '/', toPath: '/portfolio', redirectInBrowser: true, isPermanent: true })
   createRedirect({ fromPath: '/linkedin', toPath: 'https://www.linkedin.com/in/alanamanning/', redirectInBrowser: true, isPermanent: true })
   createRedirect({ fromPath: '/github', toPath: 'https://www.github.com/aam659', redirectInBrowser: true, isPermanent: true })
+  createRedirect({ fromPath: '/resume', toPath: 'https://adesignsolutionmann.com/wp-content/uploads/2019/05/myresumefinal.pdf', redirectInBrowser: true, isPermanent: true })
   return new Promise((resolve, reject) => {
     // The “graphql” function allows us to run arbitrary
     // queries against the local WordPress graphql schema. Think of
