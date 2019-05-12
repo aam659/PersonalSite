@@ -26,7 +26,7 @@ const PortfolioImage = styled.img`
     max-width: 100%
 `
 
-let centerStyle = {
+const centerStyle = {
     textAlign: 'center'
 };
 
@@ -42,11 +42,14 @@ export default ({pageContext}) => (
         </PortfolioItemsWrapper>
         
         <div dangerouslySetInnerHTML={{__html: pageContext.content}} />
-        <strong>
-            Website url:
-        </strong>
-        <a href={pageContext.acf.portfolio_url} rel="noopener noreferrer" target="_blank">
-            {pageContext.acf.portfolio_url}
-        </a>
+        <div style={centerStyle}>
+            <strong>
+                Project Url:
+            </strong>
+            <a href={pageContext.acf.portfolio_url} rel="noopener noreferrer" target="_blank">
+                {pageContext.acf.portfolio_url}
+            </a>
+        </div>
+        <div style={centerStyle}>Icons made by <a href="https://www.flaticon.com/authors/phatplus" title="phatplus">phatplus</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" rel="noopener noreferrer" target="_blank">CC 3.0 BY</a></div>
     </Layout>
 );

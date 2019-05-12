@@ -2,6 +2,10 @@ import React from 'react'
 import { graphql, StaticQuery, Link } from 'gatsby'
 import styled from 'styled-components'
 
+const center={
+    textAlign: 'center'
+};
+
 const PortfolioItemsWrapper = styled.div`
     display: flex;
     justify-content: center;
@@ -41,7 +45,7 @@ const PortfolioItems = () => {
         <PortfolioItemsWrapper>
             {props.allWordpressWpPortfolio.edges.map(portfolioItem => (
                 <PortfolioItem key={portfolioItem.node.id}>
-                    <h2>{portfolioItem.node.title}</h2>
+                    <h2 style={center}>{portfolioItem.node.title}</h2>
                     <PortfolioImage src={portfolioItem.node.featured_media.source_url} alt="Thumbnail" />
                     <div dangerouslySetInnerHTML={{__html: portfolioItem.node.excerpt}} />
                     <Link to={`/portfolio/${portfolioItem.node.slug}`}>
