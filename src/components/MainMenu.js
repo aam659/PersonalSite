@@ -31,6 +31,14 @@ const MenuItem = styled(Link)`
 //     height: 100%;
 // `
 
+const black = {
+    backgroundColor: 'black'
+};
+
+const white = {
+    color: 'white'
+};
+
 // Toggle for burger navbar
 function toggleBurger() {
     let burger = document.querySelector(".navbar-burger");
@@ -60,15 +68,15 @@ const MainMenu = ({toggleNavbar, isActive}) => (
             }
         }
     `} render={props => (
-                <nav class="navbar" role="navigation" aria-label="main navigation">
+                <nav class="navbar" role="navigation" aria-label="main navigation" style={black}>
                     <div class="navbar-brand">
                     <Logo />
                     <SiteInfo />
                         <div id="burger" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
                         onClick={toggleBurger}>
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
+                            <span style={white} aria-hidden="true"></span>
+                            <span style={white} aria-hidden="true"></span>
+                            <span style={white} aria-hidden="true"></span>
                         </div>
                     </div>
 

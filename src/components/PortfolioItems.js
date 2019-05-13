@@ -14,7 +14,6 @@ const PortfolioItemsWrapper = styled.div`
 
 const PortfolioItem = styled.div`
     width: 200px;
-    border: 1px solid #efefef;
     padding: 16px;
     margin: 16px;
 `
