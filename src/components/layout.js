@@ -26,6 +26,10 @@ const LayoutWrapper = styled.div`
   margin: 0 auto;
 `
 
+const fullWidth = {
+  width: '100%'
+};
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -43,7 +47,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={props => (
-      <div>
+      <div style={fullWidth}>
         <Helmet
           link={[
             {
