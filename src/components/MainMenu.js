@@ -80,7 +80,7 @@ const MainMenu = ({toggleNavbar, isActive}) => (
                         </div>
                     </div>
 
-                    <div id="navbarBasicExample" class="navbar-menu">
+                    <div style={black} id="navbarBasicExample" class="navbar-menu">
                         <div class="navbar-start">
                         {props.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item => (
                             <MenuItem to={`/${item.object_slug}`} key={item.title}>
